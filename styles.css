@@ -1,194 +1,500 @@
-/* Import a modern, clean font */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+/* =========================================================
+   FANNY — CLEAN BASE THEME
+   Palette: bg #0C1034, text #EDEDE9, grey #36363D, accent #2D336C
+   Type: Georgia (headings, not bold) + Poppins (body)
+   ========================================================= */
 
+/* -------- CSS reset (light) -------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
 body {
   margin: 0;
-  padding: 0;
-  font-family: "Poppins", sans-serif;
-  background-color: #36393b;
-  color: white;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
 }
 
-/* Navigation Bar */
+/* =========================
+   THEME TOKENS
+========================= */
+:root {
+  --bg: #0c1034; /* page background */
+  --text: #edede9; /* soft white */
+  --grey: #36363d; /* navbar/footer */
+  --accent: #2d336c; /* interactive accent */
+
+  --container: 1100px; /* content width */
+
+  --space-1: clamp(12px, 1.5vw, 16px);
+  --space-2: clamp(18px, 2vw, 24px);
+  --space-3: clamp(28px, 4vw, 48px);
+  --space-4: clamp(40px, 6vw, 80px);
+  --nav-h: 64px; /* fallback; will be updated by JS */
+}
+
+/* =========================
+   BASE / TYPE
+========================= */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial,
+    sans-serif;
+  line-height: 1.6;
+}
+
+/* Headings: Georgia, not bold */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400; /* NO bold */
+  line-height: 1.15;
+  color: var(--text);
+  margin: 0 0 var(--space-2);
+}
+h1 {
+  font-size: clamp(36px, 5.5vw, 64px);
+  letter-spacing: 0.2px;
+}
+h2 {
+  font-size: clamp(26px, 3.5vw, 40px);
+}
+
+/* Content links (NOT navbar/subnav/buttons) */
+main a:not(.button-link),
+.section a:not(.button-link),
+.panel a:not(.button-link) {
+  color: inherit;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+main a:not(.button-link):hover,
+.section a:not(.button-link):hover,
+.panel a:not(.button-link):hover {
+  color: var(--accent);
+}
+
+/* Utilities */
+.container {
+  width: min(100%, var(--container));
+  margin-inline: auto;
+  padding-inline: var(--space-2);
+}
+.section {
+  padding-block: var(--space-4);
+}
+
+/* Buttons */
+.button-link {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--text);
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: 500;
+  transition: transform 0.15s ease, background 0.2s ease, color 0.2s ease;
+}
+.button-link:hover {
+  background: var(--text);
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+
+/* =========================
+   NAVBAR / FOOTER
+========================= */
 .navbar {
-  background-color: #36393b;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
   position: sticky;
   top: 0;
   z-index: 100;
+  background: var(--grey);
+  padding-block: var(--space-1);
+}
+.navbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .logo {
-  font-size: 24px;
-  font-weight: 600;
-  color: #b4edd2;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(18px, 2.2vw, 28px);
+  font-weight: 400;
+  letter-spacing: 0.3px;
 }
 
 nav ul {
   list-style: none;
-  display: flex;
-  gap: 25px;
   margin: 0;
   padding: 0;
+  display: flex;
+  gap: clamp(12px, 2vw, 28px);
 }
 
-nav ul li a {
-  color: white;
-  text-decoration: none;
-  font-weight: 400;
-  transition: color 0.3s;
+/* NAVBAR LINKS: text-only, single underline (no flicker) */
+header.navbar nav a {
+  color: var(--text);
+  text-decoration: none; /* no default underline */
+  border: 0;
+  background: none;
+  padding: 0; /* no button-y padding */
+}
+header.navbar nav a:hover,
+header.navbar nav a:focus,
+header.navbar nav a.active,
+header.navbar nav a[aria-current="page"] {
+  color: var(--text); /* keep text white */
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--text);
 }
 
-nav ul li a:hover {
-  color: #ea7317;
+/* Footer echoes navbar */
+footer {
+  background: var(--grey);
+  color: var(--text);
+  text-align: center;
+  padding: var(--space-2);
+  margin-top: var(--space-4);
+  font-size: 14px;
 }
 
-/* Hero Section */
+/* =========================
+   HERO (centered but not dead-center)
+========================= */
 .hero {
-  background: url("your-hero-image.jpg") center/cover no-repeat;
-  height: 90vh;
+  position: relative;
+  min-height: clamp(60vh, 72vh, 90vh);
   display: flex;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-  padding: 0 20px;
-  position: relative;
+  isolation: isolate;
+  background: url("your-hero-image.jpg") center/cover no-repeat;
 }
-
 .hero::after {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(54, 57, 59, 0.6);
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(12, 16, 52, 0.62),
+    rgba(12, 16, 52, 0.72)
+  );
 }
-
-.hero-text {
-  position: relative;
+.hero-content {
   z-index: 1;
+  width: 100%;
+}
+.hero-inner {
+  width: min(100%, 820px);
+  padding-block: var(--space-3);
+}
+.hero h1 {
+  margin-bottom: var(--space-1);
+}
+.hero p {
+  font-size: clamp(16px, 1.6vw, 22px);
+  max-width: 60ch;
 }
 
-.hero-text h1 {
-  font-size: 50px;
-  margin-bottom: 15px;
+@media (max-width: 720px) {
+  .hero-inner {
+    margin-inline: auto;
+    text-align: center;
+  }
+}
+@media (min-width: 721px) {
+  .hero-inner {
+    text-align: left;
+  }
 }
 
-.hero-text p {
-  font-size: 22px;
+/* =========================
+   BALANCED TEXT–IMAGE SECTIONS
+========================= */
+.split {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr; /* slight bias to text column */
+  gap: clamp(20px, 3vw, 40px);
+  align-items: stretch;
+}
+.split.reverse {
+  grid-template-columns: 1fr 1.05fr;
 }
 
-/* Generic Section Styles */
-.section {
-  padding: 80px 20px;
-  text-align: center;
+.panel {
+  background: rgba(45, 51, 108, 0.12);
+  border: 1px solid rgba(237, 237, 233, 0.08);
+  border-radius: 16px;
+  padding: clamp(16px, 2.2vw, 28px);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+.panel p {
+  max-width: 65ch;
 }
 
-.section .container {
-  max-width: 1000px;
-  margin: 0 auto;
+.media {
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
 }
-
-/* Section color themes */
-.section.muted {
-  background-color: #94849b;
-  color: #f5f5f5;
-}
-
-.section.light {
-  background-color: #b4edd2;
-  color: #36393b;
-}
-
-.section.color {
-  background-color: #ea7317;
-  color: white;
-}
-
-/* Section images */
-.section img {
+.media img {
   max-width: 100%;
   height: auto;
-  margin-bottom: 20px;
-  border-radius: 10px;
+  object-fit: contain; /* keeps aspect ratio, no cropping */
 }
 
-/* About Section */
-.about {
-  background-color: #a0cfd3;
-  padding: 80px 20px;
-}
-
-.about-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 40px;
-}
-
-.about-image img {
+/* Allow special cases where you DO want full cover/crop */
+.media img.cover {
   width: 100%;
-  max-width: 400px;
-  border-radius: 10px;
+  height: 100%;
+  object-fit: cover;
 }
 
-.about-text {
-  flex: 1;
-  color: #36393b;
+@media (max-width: 900px) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+  .media {
+    height: 300px;
+  }
 }
 
-.about-text h2 {
-  font-size: 36px;
-  margin-bottom: 20px;
+/* =========================
+   GALLERY & EMBEDS
+========================= */
+.gallery-grid {
+  display: grid;
+  gap: clamp(12px, 1.8vw, 20px);
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  margin-top: 14px;
+}
+.gallery-item {
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(237, 237, 233, 0.08);
+  background: rgba(45, 51, 108, 0.12);
+  transition: transform 0.15s ease, border-color 0.2s ease;
+}
+.gallery-item:hover {
+  transform: translateY(-2px);
+  border-color: rgba(237, 237, 233, 0.2);
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-.about-text p {
-  font-size: 18px;
-  line-height: 1.6;
+.embed {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(45, 51, 108, 0.12);
+  border: 1px solid rgba(237, 237, 233, 0.08);
+}
+.embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
-/* Button Link */
-/* Button Link */
-.button-link {
-  display: inline-block;
-  margin: 10px 10px 0 0;
-  background-color: #b4edd2;
-  color: #36393b;
-  padding: 10px 20px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: background-color 0.3s, color 0.3s;
+/* =========================
+   RESEARCH SUBNAV (tabs-as-views)
+========================= */
+
+/* Subnav sticks exactly below the main navbar */
+.subnav {
+  position: sticky;
+  top: var(--nav-h);
+  z-index: 90;
+  background: var(--grey);
+  border-top: 1px solid rgba(237, 237, 233, 0.08);
+  border-bottom: 1px solid rgba(237, 237, 233, 0.08);
 }
 
-.button-link:hover {
-  background-color: #94849b;
-  color: #ffffff;
+/* If you use anchor targets anywhere */
+.anchor {
+  scroll-margin-top: calc(var(--nav-h) + 16px);
 }
 
-/* Standard link color */
-a {
-  color: inherit;
+/* Evenly distribute FIVE tabs edge-to-edge */
+.subnav-inner {
+  display: grid;
+  grid-template-columns: repeat(
+    5,
+    1fr
+  ); /* Overview, Thesis, CDL, 3CRS, Other */
+  align-items: stretch;
+}
+
+/* Base tab: text-only, full-rect hit area, NO rounded corners */
+.subnav .tab {
+  display: block;
+  text-align: center;
+  color: var(--text);
+  text-decoration: none !important;
+  background: transparent;
+  border: 1px solid transparent;
+  padding: 12px 0; /* tall enough to feel deliberate */
+  border-radius: 0; /* <-- square corners */
+}
+
+/* Hover/focus: just an underline */
+.subnav .tab:hover,
+.subnav .tab:focus {
   text-decoration: underline;
-  transition: color 0.3s;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--text);
 }
 
-a:hover {
-  color: #fec601;
+/* Selected: light rectangular box + persistent underline */
+.subnav .tab[aria-selected="true"] {
+  background: rgba(237, 237, 233, 0.08); /* subtle grey box */
+  border-color: rgba(237, 237, 233, 0.18);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--text);
 }
 
-/* Footer */
-footer {
-  background-color: #36393b;
+/* Panels act like separate pages */
+.route[hidden] {
+  display: none !important;
+}
+.route-title {
+  margin-bottom: var(--space-2);
+}
+
+/* If you ever use anchor links, keep them visible under sticky bars */
+.anchor {
+  scroll-margin-top: 120px;
+}
+
+/* Small screens: allow horizontal scroll if needed */
+@media (max-width: 520px) {
+  .subnav-inner {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(140px, 1fr);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .subnav-inner::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* RESEARCH SUBNAV tabs: text-only + underline */
+.subnav .tab {
+  color: var(--text) !important;
+  text-decoration: none !important;
+  background: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  padding: 12px 0 !important;
+}
+.subnav .tab:hover,
+.subnav .tab:focus {
+  text-decoration: underline !important;
+  text-underline-offset: 4px !important;
+  text-decoration-thickness: 2px !important;
+  text-decoration-color: var(--text) !important;
+}
+.subnav .tab[aria-selected="true"] {
+  background: rgba(237, 237, 233, 0.08) !important; /* rectangular highlight */
+  border: 1px solid rgba(237, 237, 233, 0.18) !important;
+  text-decoration: underline !important;
+  text-underline-offset: 4px !important;
+  text-decoration-thickness: 2px !important;
+  text-decoration-color: var(--text) !important;
+}
+
+/* =========================
+   ACCESSIBILITY
+========================= */
+a:focus-visible,
+.button-link:focus-visible,
+.tab:focus-visible {
+  outline: 2px dashed var(--text);
+  outline-offset: 2px;
+}
+
+/* image styling for content pages */
+.small-img {
+  max-width: 200px;
+  height: auto;
+}
+
+.medium-img {
+  max-width: 400px;
+  height: auto;
+}
+
+.large-img {
+  max-width: 700px;
+  height: auto;
+}
+
+.portrait-img {
+  max-height: 200px;
+  width: auto;
+}
+
+.landscape-img {
+  max-width: 600px;
+  height: auto;
+}
+
+.footer {
+  background-color: #333;
   color: white;
   text-align: center;
   padding: 20px;
-  font-size: 14px;
+  margin-top: 40px;
+}
+
+.footer a {
+  color: #ffdd57; /* warm highlight color */
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
 }

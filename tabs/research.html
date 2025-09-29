@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Research — Fanny Vavrovsky</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <!-- Site Nav -->
+    <header class="navbar">
+      <div class="container">
+        <div class="logo">
+          <a href="/" style="text-decoration: none; color: inherit"
+            >Fanny Vavrovsky</a
+          >
+        </div>
+        <nav>
+          <ul>
+            <li><a href="../index.html">About</a></li>
+            <li><a href="research.html" class="active">Research</a></li>
+            <li><a href="/tabs/engagement.html">Policy in Action</a></li>
+            <li><a href="/tabs/projects.html">Projects</a></li>
+            <li><a href="/tabs/creative.html">Creative</a></li>
+            <li><a href="/tabs/cv.html">CV</a></li>
+            <li><a href="/tabs/contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="research-root">
+      <!-- Intro (only shows on Overview) -->
+      <section class="section section-intro">
+        <div class="container">
+          <h1>Research</h1>
+          <p>
+            I study climate governance, policy design, and environmental
+            justice. I leverage <strong>computer science</strong> methods—data
+            pipelines, classification, and NLP— to analyze negotiation
+            narratives and public discourse, grounding findings in community
+            work and policy practice.
+          </p>
+        </div>
+      </section>
+
+      <!-- Sticky sub-nav (tabs) -->
+      <nav class="subnav tabs" role="tablist" aria-label="Research Sections">
+        <div class="container subnav-inner">
+          <a
+            role="tab"
+            aria-selected="true"
+            id="tab-overview"
+            href="#overview"
+            class="tab"
+            >Overview</a
+          >
+          <a
+            role="tab"
+            aria-selected="false"
+            id="tab-thesis"
+            href="#thesis"
+            class="tab"
+            >Thesis</a
+          >
+          <a
+            role="tab"
+            aria-selected="false"
+            id="tab-cdl"
+            href="#cdl"
+            class="tab"
+            >CDL</a
+          >
+          <a
+            role="tab"
+            aria-selected="false"
+            id="tab-3crs"
+            href="#3crs"
+            class="tab"
+            >3CRS</a
+          >
+          <a
+            role="tab"
+            aria-selected="false"
+            id="tab-other"
+            href="#other"
+            class="tab"
+            >Other Projects</a
+          >
+        </div>
+      </nav>
+
+      <!-- ROUTES: each panel is a “page” -->
+      <!-- Default route: Overview -->
+      <section
+        id="overview"
+        class="route section"
+        role="tabpanel"
+        aria-labelledby="tab-overview"
+      >
+        <div class="container">
+          <h2 class="route-title">Overview</h2>
+          <p>
+            My work combines <em>computational analysis</em> (Python pipelines,
+            topic/phrase modeling, metadata design) with
+            <em>qualitative methods</em> to trace how ideas—sovereignty, loss
+            &amp; damage, finance—move across negotiations and public arenas.
+          </p>
+          <div class="card-grid">
+            <article class="card">
+              <h3>UNFCCC Narrative Dynamics</h3>
+              <p>
+                Discourse analysis of ENB daily reports &amp; summaries (e.g.,
+                sovereignty, L&amp;D, finance) with reproducible pipelines.
+              </p>
+              <a class="button-link" href="#thesis">Open Thesis</a>
+            </article>
+            <article class="card">
+              <h3>Opposition Mapping (CDL)</h3>
+              <p>
+                Frame classification of anti–offshore wind narratives in New
+                England Facebook groups; links to policy design.
+              </p>
+              <a class="button-link" href="#cdl">Open CDL</a>
+            </article>
+            <article class="card">
+              <h3>Community Resilience (3CRS)</h3>
+              <p>
+                Qualitative workshops &amp; hazard mapping (RI &amp; ME) to
+                align planning with lived experience.
+              </p>
+              <a class="button-link" href="#3crs">Open 3CRS</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Thesis -->
+      <section
+        id="thesis"
+        class="route section"
+        role="tabpanel"
+        aria-labelledby="tab-thesis"
+        hidden
+      >
+        <div class="container split">
+          <div class="panel">
+            <h2 class="route-title">
+              Thesis: Narratives in UN Climate Negotiations
+            </h2>
+            <p>
+              I analyze the evolution of <strong>sovereignty</strong>,
+              <strong>loss &amp; damage</strong>, and
+              <strong>climate finance</strong> narratives using the
+              <em>Earth Negotiations Bulletin</em> corpus (daily reports &amp;
+              summaries). Methods: structured scraping, metadata normalization,
+              phrase-set curation, and NLP-assisted coding with human
+              validation.
+            </p>
+            <div class="actions">
+              <a class="button-link" href="#" target="_blank" rel="noopener"
+                >Method &amp; dataset (soon)</a
+              >
+              <a class="button-link" href="#" target="_blank" rel="noopener"
+                >Early findings (soon)</a
+              >
+            </div>
+          </div>
+          <div class="media">
+            <img
+              src="/images/research-thesis.jpg"
+              alt="Notes and corpus pipeline"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- CDL -->
+      <section
+        id="cdl"
+        class="route section"
+        role="tabpanel"
+        aria-labelledby="tab-cdl"
+        hidden
+      >
+        <div class="container split reverse">
+          <div class="media">
+            <img
+              src="/images/research-facebook.jpg"
+              alt="Classification pipeline / dashboards"
+            />
+          </div>
+          <div class="panel">
+            <h2 class="route-title">Climate &amp; Development Lab (CDL)</h2>
+            <p>
+              Mapping opposition narratives (e.g., anti–offshore wind) across
+              public Facebook groups in New England. Work spans data collection,
+              labeling, classifier prototyping, and dashboarding for traceable
+              evidence.
+            </p>
+            <div class="actions">
+              <a class="button-link" href="#" target="_blank" rel="noopener"
+                >Project overview</a
+              >
+              <a class="button-link" href="/tabs/projects.html"
+                >Related tools</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3CRS -->
+      <section
+        id="3crs"
+        class="route section"
+        role="tabpanel"
+        aria-labelledby="tab-3crs"
+        hidden
+      >
+        <div class="container split">
+          <div class="panel">
+            <h2 class="route-title">
+              3CRS: Community-Driven Coastal Climate Research
+            </h2>
+            <p>
+              Qualitative workshops and mapping (RI &amp; ME) to surface
+              community priorities and align resilience planning.
+            </p>
+            <div class="actions">
+              <a class="button-link" href="#" target="_blank" rel="noopener"
+                >Maps &amp; briefs</a
+              >
+            </div>
+          </div>
+          <div class="media">
+            <img
+              src="/images/research-3crs.jpg"
+              alt="Coastal mapping / facilitation"
+            />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- other -->
+    <section
+      id="other"
+      class="route section"
+      role="tabpanel"
+      aria-labelledby="tab-other"
+      hidden
+    >
+      <div class="container split">
+        <div class="panel">
+          <h2 class="route-title">Other Projects</h2>
+          <p>
+            Semester-long research papers and class projects that extend my core
+            interests: climate governance, policy design, and computational
+            methods. Selections below with short summaries and links.
+          </p>
+
+          <div class="card-grid">
+            <article class="card">
+              <h3>Policy Design Studio — Coastal Siting</h3>
+              <p>
+                Stakeholder mapping and policy options for equitable coastal
+                infrastructure siting.
+              </p>
+              <a class="button-link" href="#" target="_blank" rel="noopener"
+                >Brief (PDF)</a
+              >
+            </article>
+            <article class="card">
+              <h3>NLP Mini — Argument Mining</h3>
+              <p>
+                Exploring argument component detection on climate statements;
+                small labeled set + baseline model.
+              </p>
+              <a class="button-link" href="#" target="_blank" rel="noopener"
+                >Repo / Notes</a
+              >
+            </article>
+            <article class="card">
+              <h3>Methods — Causal Inference Problem Set</h3>
+              <p>
+                DiD and IV exercises on climate program impacts; notes on
+                assumptions and robustness.
+              </p>
+              <a class="button-link" href="#" target="_blank" rel="noopener"
+                >Write-up</a
+              >
+            </article>
+          </div>
+        </div>
+        <div class="media">
+          <img
+            src="/images/research-other.jpg"
+            alt="Assorted project boards and notes"
+          />
+        </div>
+      </div>
+    </section>
+
+    <footer>© 2025 Fanny Vavrovsky</footer>
+
+    <!-- Route controller (tabs-as-views) -->
+    <script>
+      (function () {
+        const root = document.getElementById("research-root");
+        const intro = root.querySelector(".section-intro");
+        const tabs = Array.from(document.querySelectorAll(".tabs .tab"));
+        const panels = Array.from(document.querySelectorAll(".route"));
+        const subnav = document.querySelector(".subnav");
+        const navbar = document.querySelector(".navbar");
+        const defaultId = "overview";
+
+        function setNavHeight() {
+          const h = navbar ? navbar.offsetHeight : 64;
+          document.documentElement.style.setProperty("--nav-h", h + "px");
+        }
+
+        function scrollToIntro() {
+          const navH =
+            parseInt(
+              getComputedStyle(document.documentElement).getPropertyValue(
+                "--nav-h"
+              )
+            ) || 64;
+          const y = intro
+            ? intro.getBoundingClientRect().top + window.scrollY - navH
+            : 0;
+          window.scrollTo({ top: y, behavior: "auto" });
+        }
+
+        function show(id, push = true, scrollMode = "none") {
+          // swap "view"
+          panels.forEach((p) => (p.hidden = p.id !== id));
+          tabs.forEach((t) =>
+            t.setAttribute("aria-selected", t.getAttribute("href") === "#" + id)
+          );
+
+          // keep intro visible on every tab
+          if (intro) intro.style.display = "";
+
+          // scroll behavior
+          if (scrollMode === "intro") scrollToIntro();
+
+          // set hash
+          if (push) history.pushState({ section: id }, "", "#" + id);
+        }
+
+        // recompute on load & resize (responsive navbar height)
+        window.addEventListener("load", setNavHeight);
+        window.addEventListener("resize", setNavHeight);
+
+        // TAB CLICKS → swap view and keep INTRO at the top (no jump to subnav)
+        tabs.forEach((tab) => {
+          tab.addEventListener("click", (e) => {
+            e.preventDefault();
+            const id = tab.getAttribute("href").slice(1);
+            show(id, true, "intro"); // <- was "subnav"
+          });
+        });
+
+        // BACK/FORWARD → also keep INTRO at the top
+        window.addEventListener("popstate", () => {
+          const hash = location.hash || "";
+          const id = hash ? hash.slice(1) : defaultId;
+          const exists = panels.some((p) => p.id === id);
+          show(exists ? id : defaultId, false, "intro"); // <- use 'intro'
+        });
+
+        // INITIAL LOAD:
+        //  - if no hash, show default without scrolling (intro is already at top)
+        //  - if deep-linked with a hash, show that tab and scroll to INTRO
+        setNavHeight();
+        (function initFromHash() {
+          const hash = location.hash || "";
+          const id = hash ? hash.slice(1) : defaultId;
+          const exists = panels.some((p) => p.id === id);
+          show(exists ? id : defaultId, false, hash ? "intro" : "none"); // <- 'intro' for deep links
+        })();
+      })();
+    </script>
+  </body>
+</html>
