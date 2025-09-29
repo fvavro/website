@@ -224,17 +224,6 @@ footer {
   max-width: 60ch;
 }
 
-@media (max-width: 720px) {
-  .hero-inner {
-    margin-inline: auto;
-    text-align: center;
-  }
-}
-@media (min-width: 721px) {
-  .hero-inner {
-    text-align: left;
-  }
-}
 
 /* =========================
    BALANCED TEXT–IMAGE SECTIONS
@@ -262,32 +251,68 @@ footer {
   max-width: 65ch;
 }
 
-.media {
-  border-radius: 16px;
-  overflow: hidden;
-  display: flex;
-}
-.media img {
+/* === IMAGE SYSTEM (drop-in) ============================== */
+/* Base: use inside any wrapper (.media, .panel, etc.) */
+.img {
+  display: block;
+  width: var(--img-w, 100%);  /* default fills container */
   max-width: 100%;
-  height: auto;
-  object-fit: contain; /* keeps aspect ratio, no cropping */
+  aspect-ratio: var(--img-ratio, auto);
+  height: auto;               /* will be overridden if aspect is set */
+  border-radius: 12px;
+  object-fit: cover;          /* crop gracefully to the box */
+  background: rgba(237,237,233,.05);
 }
 
-/* Allow special cases where you DO want full cover/crop */
-.media img.cover {
+/* Orientation helpers */
+.is-portrait  { --img-ratio: 3 / 4; }
+.is-landscape { --img-ratio: 3 / 2; }
+.is-square    { --img-ratio: 1 / 1; }
+
+/* Size helpers: quarter / third of screen, but cap for huge monitors */
+.img-quarter { --img-w: clamp(180px, 25vw, 420px); }
+.img-third   { --img-w: clamp(220px, 33vw, 540px); }
+.img-half    { --img-w: clamp(280px, 50vw, 760px); }
+
+/* About portrait: “normal” friendly size */
+.about-photo { --img-w: clamp(220px, 28vw, 420px); --img-ratio: 3 / 4; }
+
+/* Media wrapper used in your split sections */
+.media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;                 /* ensure no extra padding */
+  border-radius: 16px;
+  overflow: hidden;           /* hide cover-cropped edges */
+  background: rgba(45,51,108,0.12);
+  border: 1px solid rgba(237,237,233,0.08);
+}
+
+/* In two-column .split, let the image nicely fill column width. */
+.split .media .img {
+  --img-w: 100%;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;               /* aspect controls height when set */
 }
 
-@media (max-width: 900px) {
-  .split {
-    grid-template-columns: 1fr;
-  }
-  .media {
-    height: 300px;
-  }
+/* If you prefer fixed-height preview crops in split: uncomment this
+.split .media .img { height: 100%; }
+.split .media { min-height: 260px; }
+*/
+
+/* Keep a single .split declaration (remove duplicates) */
+.split {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: clamp(20px, 3vw, 40px);
+  align-items: stretch;
 }
+.split.reverse { grid-template-columns: 1fr 1.05fr; }
+@media (max-width: 900px) {
+  .split { grid-template-columns: 1fr; }
+}
+
 
 /* =========================
    GALLERY & EMBEDS
@@ -456,7 +481,7 @@ a:focus-visible,
   outline-offset: 2px;
 }
 
-/* image styling for content pages */
+/* image styling for content pages 
 .small-img {
   max-width: 200px;
   height: auto;
@@ -481,20 +506,76 @@ a:focus-visible,
   max-width: 600px;
   height: auto;
 }
+  */
 
+/* --- Footer --- */
 .footer {
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 20px;
+  background: #36363d;
+  color: #cfd3df;
+  padding: 24px 0;
   margin-top: 40px;
 }
-
+.footer .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.footer p {
+  margin: 0;
+}
 .footer a {
-  color: #ffdd57; /* warm highlight color */
+  color: #cfd3df;
   text-decoration: none;
 }
-
 .footer a:hover {
   text-decoration: underline;
+}
+
+/* Image handling: predictable sizes, no overflow */
+.media {
+  width: 100%;
+  height: 100%;
+}
+.media .fit-img {
+  width: 100%;
+  height: 100%;
+  max-height: 360px; /* keeps images from towering over text */
+  object-fit: cover; /* crop gracefully to fill the box */
+  border-radius: 14px;
+  display: block;
+  background: #ddd; /* placeholder bg while loading */
+}
+
+/* global image/layout helpers */
+.media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+.split {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .split {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.media .landscape-img {
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 12px;
+}
+.card-grid {
+  display: grid;
+  gap: 1rem;
+}
+@media (min-width: 750px) {
+  .card-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }

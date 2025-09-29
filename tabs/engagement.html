@@ -1,54 +1,388 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Governance & Policy</title>
-    <link rel="stylesheet" href="../styles.css" />
+    <title>Policy in Action — Fanny Vavrovsky</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <style>
+      /* Light, self-contained styles that piggyback on your system */
+      .prose p {
+        max-width: 70ch;
+      }
+      .figure {
+        margin: 1rem 0;
+      }
+      .figure img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 12px;
+      }
+      .figure figcaption {
+        font-size: 0.9rem;
+        opacity: 0.8;
+        margin-top: 0.4rem;
+      }
+
+      /* Minimal click-through gallery */
+      .gallery-lite {
+        position: relative;
+        width: 100%;
+        max-width: 840px;
+        margin: 1rem auto;
+      }
+      .gallery-lite img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 12px;
+      }
+      .gallery-lite button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        border: none;
+        background: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        padding: 0.4rem 0.6rem;
+        line-height: 1;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+      .gallery-lite button[disabled] {
+        opacity: 0.3;
+        cursor: default;
+      }
+      .gallery-lite .prev {
+        left: 0.5rem;
+      }
+      .gallery-lite .next {
+        right: 0.5rem;
+      }
+      .gallery-lite .dotbar {
+        display: flex;
+        gap: 6px;
+        justify-content: center;
+        margin-top: 0.5rem;
+      }
+      .gallery-lite .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: currentColor;
+        opacity: 0.25;
+      }
+      .gallery-lite .dot[aria-current="true"] {
+        opacity: 0.9;
+      }
+
+      /* Responsive two-column blocks reusing your .split */
+      .block {
+        margin: 2rem 0;
+      }
+      .block .panel h2 {
+        margin-top: 0;
+      }
+
+      /* Optional muted callouts */
+      .callout {
+        background: var(--muted, rgba(0, 0, 0, 0.04));
+        padding: 1rem;
+        border-radius: 12px;
+      }
+    </style>
   </head>
   <body>
-    <!-- Navigation Bar -->
+    <!-- Site Nav -->
     <header class="navbar">
-      <div class="logo">
-        <a href="../index.html" style="text-decoration: none; color: inherit"
-          >Fanny Vavrovsky</a
-        >
+      <div class="container">
+        <div class="logo">
+          <a href="/" style="text-decoration: none; color: inherit"
+            >Fanny Vavrovsky</a
+          >
+        </div>
+        <nav>
+          <ul>
+            <li><a href="/index.html">About</a></li>
+            <li><a href="/tabs/research.html">Research</a></li>
+            <li>
+              <a href="/tabs/engagement.html" class="active"
+                >Policy in Action</a
+              >
+            </li>
+            <li><a href="/tabs/projects.html">Projects</a></li>
+            <li><a href="/tabs/creative.html">Creative</a></li>
+            <li><a href="/tabs/cv.html">CV</a></li>
+            <li><a href="/tabs/contact.html">Contact</a></li>
+          </ul>
+        </nav>
       </div>
-      <nav>
-        <ul>
-          <li><a href="../index.html">About</a></li>
-          <li><a href="/tabs/research.html">Research</a></li>
-          <li>
-            <a href="/tabs/engagement.html" class="active">Policy in Action</a>
-          </li>
-          <li><a href="/tabs/projects.html">Projects</a></li>
-          <li><a href="/tabs/creative.html">Creative</a></li>
-          <li><a href="/tabs/cv.html">CV</a></li>
-          <li><a href="/tabs/contact.html">Contact</a></li>
-        </ul>
-      </nav>
     </header>
 
-    <!-- Main Content -->
-    <main class="section light">
-      <div class="container">
-        <h1>Governance & Policy</h1>
-        <p>
-          I am drawn to the complex intersections between global governance,
-          migration, and climate change. My academic work explores how
-          international institutions negotiate power, whose voices are
-          amplified, and which frameworks guide — or fail to guide — equitable
-          decision-making. I am particularly interested in questions of
-          sovereignty, legal personhood, and the possibilities for building more
-          inclusive, participatory global systems in the face of environmental
-          and political crises.
-        </p>
-      </div>
+    <main>
+      <!-- Intro: short + non-disclosive framing -->
+      <section class="section">
+        <div class="container">
+          <h1>Policy in Action</h1>
+          <p class="prose">
+            I work at the boundary of research and practice in multilateral
+            spaces—learning how institutions make (and stall) decisions and how
+            people experience those decisions on the ground. Highlights below
+            are written to share responsibilities and learning without
+            disclosing non‑public details.
+          </p>
+        </div>
+      </section>
+
+      <!-- COP29 block -->
+      <section class="section block">
+        <div class="container split">
+          <div class="panel">
+            <h2>COP29 (UNFCCC)</h2>
+            <p>
+              Observed negotiations and side events with a focus on finance,
+              loss‑and‑damage, and participation. Contributed field notes that
+              later informed my dataset design and narrative coding for
+              <a class="inline-link" href="/tabs/research.html#thesis"
+                >thesis research</a
+              >.
+            </p>
+            <ul>
+              <li>
+                Tracked agenda items across daily updates to connect formal
+                texts to hallway narratives.
+              </li>
+              <li>
+                Compared party and observer framings to identify recurring
+                opposition patterns.
+              </li>
+              <li>
+                Translated takeaways into reproducible tags in my analysis
+                pipeline.
+              </li>
+            </ul>
+          </div>
+          <figure class="media figure">
+            <img src="/images/policy-cop29.jpg" alt="COP venue scene" />
+            <figcaption>
+              Notes → tags: turning observation into structure.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- GCCM block -->
+      <section class="section block">
+        <div class="container split reverse">
+          <figure class="media figure">
+            <img
+              src="/images/policy-gccm.jpg"
+              alt="Global Center for Climate Mobility event scene"
+            />
+            <figcaption>
+              Program logistics and stakeholder convening.
+            </figcaption>
+          </figure>
+          <div class="panel">
+            <h2>Global Center for Climate Mobility</h2>
+            <p>
+              Supported a climate mobility summit bringing together government,
+              practitioners, and civil society. Roles spanned stakeholder
+              coordination, materials design, and documentation of key themes
+              for follow‑up.
+            </p>
+            <ul>
+              <li>
+                Coordinated session materials and speaker flows across tracks.
+              </li>
+              <li>Synthesized action points for post‑event briefs.</li>
+              <li>Bridged insights with youth and academic partners.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- BBNJ block -->
+      <section class="section block">
+        <div class="container split">
+          <div class="panel">
+            <h2>BBNJ (Areas Beyond National Jurisdiction)</h2>
+            <p>
+              Followed treaty developments on marine biodiversity beyond
+              national jurisdiction. Focused on access‑and‑benefit sharing,
+              capacity building, and the role of scientific assessments.
+            </p>
+            <ul>
+              <li>
+                Mapped stakeholder positions across sessions to track
+                convergence/divergence.
+              </li>
+              <li>
+                Noted implementation questions that recur across ocean and
+                climate fora.
+              </li>
+            </ul>
+          </div>
+          <figure class="media figure">
+            <img
+              src="/images/policy-bbnj.jpg"
+              alt="Ocean negotiations visual"
+            />
+            <figcaption>
+              Intersections: science, equity, and implementation.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ECOSOC Youth Forum block -->
+      <section class="section block">
+        <div class="container split reverse">
+          <figure class="media figure">
+            <img
+              src="/images/policy-ecosoc.jpg"
+              alt="ECOSOC Youth Forum scene"
+            />
+            <figcaption>
+              Representation and agenda‑setting at youth fora.
+            </figcaption>
+          </figure>
+          <div class="panel">
+            <h2>ECOSOC Youth Forum</h2>
+            <p>
+              Participated in sessions on youth representation and climate
+              governance pathways. Focus: connecting local needs to UN processes
+              and identifying entry points for meaningful participation.
+            </p>
+            <ul>
+              <li>
+                Documented barriers to access and proposed low‑lift fixes for
+                participation.
+              </li>
+              <li>
+                Connected student government learnings to multilateral youth
+                engagement.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Minimal click-through gallery (1-up, arrows) -->
+      <section class="section">
+        <div class="container">
+          <h2>Scenes</h2>
+          <div class="gallery-lite" data-gallery>
+            <img alt="Gallery image" />
+            <button class="prev" aria-label="Previous" data-prev>‹</button>
+            <button class="next" aria-label="Next" data-next>›</button>
+            <div class="dotbar" aria-hidden="true"></div>
+          </div>
+          <p
+            class="prose"
+            style="text-align: center; opacity: 0.7; font-size: 0.95rem"
+          >
+            Click or use ←/→ to navigate
+          </p>
+        </div>
+      </section>
+
+      <!-- Systems familiarity / competencies (optional section) -->
+      <section class="section">
+        <div class="container">
+          <h2>Systems & Competencies</h2>
+          <div class="callout prose">
+            <p style="margin-top: 0">
+              Not exhaustive—just a snapshot of the places and capacities I work
+              with most. Listed to indicate comfort navigating these spaces;
+              details kept general.
+            </p>
+            <ul>
+              <li>
+                <strong>Processes:</strong> UNFCCC COPs; BBNJ; ECOSOC youth
+                mechanisms; campus governance.
+              </li>
+              <li>
+                <strong>Focus areas:</strong> climate finance; loss & damage;
+                participation & representation; climate mobility; ocean
+                governance.
+              </li>
+              <li>
+                <strong>Methods:</strong> note‑taking to structured tags; agenda
+                tracking; stakeholder mapping; synthesis for briefs.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <!-- Footer -->
-    <footer>
-      <p>&copy; 2025 Fanny Vavrovsky</p>
+    <footer class="footer">
+      <div class="container">
+        <p>2025 Fanny Vavrovsky</p>
+        <p>
+          Contact me via
+          <a href="mailto:fvavrovsky@gmail.com">fvavrovsky@gmail.com</a> or
+          <a
+            href="https://www.linkedin.com/in/fanny-vavrovsky/"
+            target="_blank"
+            rel="noopener"
+            >LinkedIn</a
+          >
+        </p>
+      </div>
     </footer>
+
+    <!-- Tiny gallery script (no dependencies) -->
+    <script>
+      (function () {
+        const el = document.querySelector("[data-gallery]");
+        if (!el) return;
+        const img = el.querySelector("img");
+        const prev = el.querySelector("[data-prev]");
+        const next = el.querySelector("[data-next]");
+        const dots = el.querySelector(".dotbar");
+        // Replace these with your actual image paths
+        const slides = [
+          "/images/policy-cop29.jpg",
+          "/images/policy-gccm.jpg",
+          "/images/policy-bbnj.jpg",
+          "/images/policy-ecosoc.jpg",
+        ];
+        let i = 0;
+        function render() {
+          img.src = slides[i];
+          prev.disabled = i === 0;
+          next.disabled = i === slides.length - 1;
+          dots.innerHTML = slides
+            .map(
+              (_, idx) =>
+                `<span class="dot" ${
+                  idx === i ? 'aria-current="true"' : ""
+                }></span>`
+            )
+            .join("");
+        }
+        prev.addEventListener("click", () => {
+          if (i > 0) {
+            i--;
+            render();
+          }
+        });
+        next.addEventListener("click", () => {
+          if (i < slides.length - 1) {
+            i++;
+            render();
+          }
+        });
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "ArrowLeft") prev.click();
+          if (e.key === "ArrowRight") next.click();
+        });
+        img.addEventListener("click", () => next.click());
+        render();
+      })();
+    </script>
   </body>
 </html>

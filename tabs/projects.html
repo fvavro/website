@@ -3,49 +3,397 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projects</title>
-    <link rel="stylesheet" href="../styles.css" />
+    <title>Projects — Fanny Vavrovsky</title>
+    <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <!-- Navigation Bar -->
+    <!-- Site Nav -->
     <header class="navbar">
-      <div class="logo">
-        <a href="../index.html" style="text-decoration: none; color: inherit"
-          >Fanny Vavrovsky</a
-        >
+      <div class="container">
+        <div class="logo">
+          <a href="/" style="text-decoration: none; color: inherit"
+            >Fanny Vavrovsky</a
+          >
+        </div>
+        <nav>
+          <ul>
+            <li><a href="/index.html">About</a></li>
+            <li><a href="/tabs/research.html">Research</a></li>
+            <li><a href="/tabs/engagement.html">Policy in Action</a></li>
+            <li><a href="/tabs/projects.html" class="active">Projects</a></li>
+            <li><a href="/tabs/creative.html">Creative</a></li>
+            <li><a href="/tabs/cv.html">CV</a></li>
+            <li><a href="/tabs/contact.html">Contact</a></li>
+          </ul>
+        </nav>
       </div>
-      <nav>
-        <ul>
-          <li><a href="../index.html">About</a></li>
-          <li><a href="/tabs/research.html">Research</a></li>
-          <li><a href="/tabs/engagement.html">Policy in Action</a></li>
-          <li><a href="/tabs/projects.html" class="active">Projects</a></li>
-          <li><a href="/tabs/creative.html">Creative</a></li>
-          <li><a href="/tabs/cv.html">CV</a></li>
-          <li><a href="/tabs/contact.html">Contact</a></li>
-        </ul>
-      </nav>
     </header>
 
-    <!-- Main Content -->
-    <main class="section muted">
-      <div class="container">
-        <h1>Projects</h1>
-        <p>
-          My work spans disciplines — from software engineering and data
-          visualization to event organizing and community-driven research. I
-          enjoy building tools, spaces, and experiences that make complex issues
-          more accessible and collaborative. Whether designing digital
-          platforms, coordinating international summits, or mapping climate
-          narratives, I aim to bridge technical skill with human-centered
-          purpose.
-        </p>
-      </div>
+    <main id="projects-root">
+      <!-- Intro (only shows on Overview) -->
+      <section class="section section-intro">
+        <div class="container">
+          <h1>Projects</h1>
+          <p>
+            I build things that make climate policy and research more legible
+            and usable— from negotiation simulations and public dashboards to
+            lightweight tools and websites.
+          </p>
+        </div>
+      </section>
+
+      <!-- Sticky sub-nav (tabs) -->
+      <nav class="subnav tabs" role="tablist" aria-label="Project Sections">
+        <div class="container subnav-inner">
+          <a
+            role="tab"
+            aria-selected="true"
+            id="tab-overview"
+            href="#overview"
+            class="tab"
+            >Overview</a
+          >
+          <a
+            role="tab"
+            aria-selected="false"
+            id="tab-coal"
+            href="#coal"
+            class="tab"
+            >COAL</a
+          >
+
+          <a
+            role="tab"
+            aria-selected="false"
+            id="tab-web"
+            href="#web"
+            class="tab"
+            >Websites</a
+          >
+          <a
+            role="tab"
+            aria-selected="false"
+            id="tab-dataviz"
+            href="#dataviz"
+            class="tab"
+            >Data Viz</a
+          >
+          <a
+            role="tab"
+            aria-selected="false"
+            id="tab-other"
+            href="#other"
+            class="tab"
+            >Other</a
+          >
+        </div>
+      </nav>
+
+      <!-- ROUTES -->
+      <!-- Overview -->
+      <section
+        id="overview"
+        class="route section"
+        role="tabpanel"
+        aria-labelledby="tab-overview"
+      >
+        <div class="container">
+          <h2 class="route-title">Overview</h2>
+          <p>
+            A quick tour of featured work. Use the cards to jump to a section.
+          </p>
+          <div class="card-grid">
+            <article class="card">
+              <h3>Conference of All Life (COAL)</h3>
+              <p>
+                Immersive climate negotiation simulation—design, logistics, and
+                curriculum.
+              </p>
+              <a class="button-link" href="#coal">Open COAL</a>
+            </article>
+            <article class="card">
+              <h3>Student Tools</h3>
+              <p>
+                Lightweight utilities and dashboards for wayfinding and
+                decision‑making.
+              </p>
+              <a class="button-link" href="#tools">Open Tools</a>
+            </article>
+            <article class="card">
+              <h3>Web Projects</h3>
+              <p>
+                Websites I’ve designed/built for accessibility and
+                clarity—including this one.
+              </p>
+              <a class="button-link" href="#web">Open Websites</a>
+            </article>
+            <article class="card">
+              <h3>Data Visualization</h3>
+              <p>Public‑facing visualizations and internal dashboards.</p>
+              <a class="button-link" href="#dataviz">Open Data Viz</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- COAL -->
+      <section
+        id="coal"
+        class="route section"
+        role="tabpanel"
+        aria-labelledby="tab-coal"
+        hidden
+      >
+        <div class="container split">
+          <div class="panel">
+            <h2 class="route-title">Conference of All Life (COAL)</h2>
+            <p>
+              Multi‑day, role‑play negotiation bringing students, faculty, and
+              community together. I lead program design, facilitation, briefing
+              materials, and logistics.
+            </p>
+            <div class="actions">
+              <a class="button-link" href="#" target="_blank" rel="noopener"
+                >Overview (PDF)</a
+              >
+              <a class="button-link" href="#" target="_blank" rel="noopener"
+                >Briefing Packet (sample)</a
+              >
+            </div>
+          </div>
+          <div class="media">
+            <img
+              src="/images/projects-coal.jpg"
+              alt="Participants in a negotiation simulation"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Websites -->
+      <section
+        id="web"
+        class="route section"
+        role="tabpanel"
+        aria-labelledby="tab-web"
+        hidden
+      >
+        <div class="container split">
+          <div class="panel">
+            <h2 class="route-title">Web Projects</h2>
+            <p>
+              Sites and microsites built with an emphasis on clarity,
+              responsiveness, and low‑maintenance code.
+            </p>
+            <div class="card-grid">
+              <article class="card">
+                <h3>Portfolio Site</h3>
+                <p>
+                  This site—custom HTML/CSS/JS with accessible navigation and
+                  tabbed sub‑pages.
+                </p>
+                <a class="button-link" href="/">Home</a>
+              </article>
+              <article class="card">
+                <h3>Event Microsite</h3>
+                <p>
+                  Template for small programs (agenda, speakers, materials) with
+                  shareable links.
+                </p>
+                <a class="button-link" href="#" target="_blank" rel="noopener"
+                  >Live (soon)</a
+                >
+              </article>
+            </div>
+          </div>
+          <div class="media">
+            <img
+              src="/images/projects-web.jpg"
+              alt="Website mockups on laptop and phone"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Data Visualization -->
+      <section
+        id="dataviz"
+        class="route section"
+        role="tabpanel"
+        aria-labelledby="tab-dataviz"
+        hidden
+      >
+        <div class="container split reverse">
+          <div class="media">
+            <img
+              src="/images/projects-dataviz.jpg"
+              alt="Charts and dashboards"
+            />
+          </div>
+          <div class="panel">
+            <h2 class="route-title">Data Visualization</h2>
+            <p>
+              Public and internal visuals that foreground context and
+              uncertainty.
+            </p>
+            <div class="card-grid">
+              <article class="card">
+                <h3>Career Pathways</h3>
+                <p>
+                  Interactive view of industries, skills, and alumni examples.
+                </p>
+                <a
+                  class="button-link"
+                  href="https://tableau.brown.edu/t/PublicContent/views/BrownCenterforCareerExplorationPathwaysToolADi/SearchbyIndustry?%3Aembed=y&%3AisGuestRedirectFromVizportal=y"
+                  target="_blank"
+                  rel="noopener"
+                  >Open dashboard</a
+                >
+              </article>
+              <article class="card">
+                <h3>Opposition Frames</h3>
+                <p>
+                  Internal CDL prototype: topic/claim overview for
+                  anti‑offshore‑wind posts.
+                </p>
+                <a class="button-link" href="/tabs/research.html#cdl"
+                  >See research</a
+                >
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Other -->
+      <section
+        id="other"
+        class="route section"
+        role="tabpanel"
+        aria-labelledby="tab-other"
+        hidden
+      >
+        <div class="container split">
+          <div class="panel">
+            <h2 class="route-title">Other Projects</h2>
+            <p>
+              Class projects and smaller experiments that inform my practice.
+            </p>
+            <div class="card-grid">
+              <article class="card">
+                <h3>Facilitation Guides</h3>
+                <p>
+                  Short guides for inclusive meetings and collaborative
+                  workshops.
+                </p>
+                <a class="button-link" href="#" target="_blank" rel="noopener"
+                  >PDF (soon)</a
+                >
+              </article>
+              <article class="card">
+                <h3>Mini‑zines</h3>
+                <p>
+                  One‑page explainers translating climate theory for broader
+                  audiences.
+                </p>
+                <a class="button-link" href="/tabs/creative.html"
+                  >See creative</a
+                >
+              </article>
+            </div>
+          </div>
+          <div class="media">
+            <img
+              src="/images/projects-other.jpg"
+              alt="Pinned notes and sticky cards"
+            />
+          </div>
+        </div>
+      </section>
     </main>
 
-    <!-- Footer -->
-    <footer>
-      <p>&copy; 2025 Fanny Vavrovsky</p>
+    <footer class="footer">
+      <div class="container">
+        <p>2025 Fanny Vavrovsky</p>
+        <p>
+          Contact me via
+          <a href="mailto:fvavrovsky@gmail.com">fvavrovsky@gmail.com</a> or
+          <a
+            href="https://www.linkedin.com/in/fanny-vavrovsky/"
+            target="_blank"
+            rel="noopener"
+            >LinkedIn</a
+          >
+        </p>
+      </div>
     </footer>
+
+    <!-- Route controller (tabs-as-views) -->
+    <script>
+      (function () {
+        const root = document.getElementById("projects-root");
+        const intro = root.querySelector(".section-intro");
+        const tabs = Array.from(document.querySelectorAll(".tabs .tab"));
+        const panels = Array.from(document.querySelectorAll(".route"));
+        const subnav = document.querySelector(".subnav");
+        const navbar = document.querySelector(".navbar");
+        const defaultId = "overview";
+
+        function setNavHeight() {
+          const h = navbar ? navbar.offsetHeight : 64;
+          document.documentElement.style.setProperty("--nav-h", h + "px");
+          if (subnav) subnav.style.top = h + "px"; // keep sticky offset aligned
+        }
+
+        function scrollToIntro() {
+          const navH =
+            parseInt(
+              getComputedStyle(document.documentElement).getPropertyValue(
+                "--nav-h"
+              )
+            ) || 64;
+          const y = intro
+            ? intro.getBoundingClientRect().top + window.scrollY - navH
+            : 0;
+          window.scrollTo({ top: y, behavior: "auto" });
+        }
+
+        function show(id, push = true, scrollMode = "none") {
+          panels.forEach((p) => (p.hidden = p.id !== id));
+          tabs.forEach((t) =>
+            t.setAttribute("aria-selected", t.getAttribute("href") === "#" + id)
+          );
+          if (intro) intro.style.display = "";
+          if (scrollMode === "intro") scrollToIntro();
+          if (push) history.pushState({ section: id }, "", "#" + id);
+        }
+
+        window.addEventListener("load", setNavHeight);
+        window.addEventListener("resize", setNavHeight);
+
+        tabs.forEach((tab) => {
+          tab.addEventListener("click", (e) => {
+            e.preventDefault();
+            const id = tab.getAttribute("href").slice(1);
+            show(id, true, "intro");
+          });
+        });
+
+        window.addEventListener("popstate", () => {
+          const hash = location.hash || "";
+          const id = hash ? hash.slice(1) : defaultId;
+          const exists = panels.some((p) => p.id === id);
+          show(exists ? id : defaultId, false, "intro");
+        });
+
+        setNavHeight();
+        (function initFromHash() {
+          const hash = location.hash || "";
+          const id = hash ? hash.slice(1) : defaultId;
+          const exists = panels.some((p) => p.id === id);
+          show(exists ? id : defaultId, false, hash ? "intro" : "none");
+        })();
+      })();
+    </script>
   </body>
 </html>
