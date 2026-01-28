@@ -359,6 +359,85 @@ footer {
   border: 0;
 }
 
+/* CONTACT — banner + centered intro + tidy form */
+.page-banner {
+  position: relative;
+  width: 100%;
+  height: clamp(220px, 32vw, 420px);
+  border-radius: 0;
+  overflow: hidden;
+  border: 1px solid rgba(237, 237, 233, 0.08);
+  background: rgba(45, 51, 108, 0.12);
+  margin-bottom: var(--space-3);
+}
+.page-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.page-banner-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;     /* vertical centering */
+  justify-content: center; /* horizontal centering */
+  text-align: center;
+  padding: var(--space-3);
+}
+.page-banner-overlay {
+  background: linear-gradient(
+    rgba(12, 16, 52, 0.55),
+    rgba(12, 16, 52, 0.55)
+  );
+}
+.page-banner-kicker {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(24px, 4vw, 44px);
+  line-height: 1.1;
+}
+
+.contact-intro {
+  text-align: center;
+  max-width: 70ch;
+  margin: 0 auto var(--space-3);
+}
+.contact-intro p {
+  margin: 0;
+  font-size: clamp(16px, 1.4vw, 20px);
+}
+
+.contact-panel {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.field {
+  display: block;
+  margin-bottom: var(--space-2);
+}
+.field span {
+  display: block;
+  margin-bottom: 6px;
+}
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(237, 237, 233, 0.18);
+  background: rgba(12, 16, 52, 0.35);
+}
+
+.contact-note {
+  margin: var(--space-2) 0 0;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+
 /* =========================
    RESEARCH SUBNAV (tabs-as-views)
 ========================= */

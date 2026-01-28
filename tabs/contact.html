@@ -1,45 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact</title>
-  <link rel="stylesheet" href="../styles.css" />
-</head>
-<body>
-  <!-- Navigation Bar -->
-  <header class="navbar">
-    <div class="logo"><a href="../index.html" style="text-decoration: none; color: inherit;">Fanny Vavrovsky</a></div>
-    <nav>
-      <ul>
-        <li><a href="../index.html">About</a></li>
-        <li><a href="/tabs/research.html">Research</a></li>
-        <li><a href="/tabs/engagement.html">Policy in Action</a></li>
-        <li><a href="/tabs/projects.html">Projects</a></li>
-        <li><a href="/tabs/creative.html">Creative</a></li>
-        <li><a href="/tabs/cv.html">CV</a></li>
-        <li><a href="/tabs/contact.html" class="active">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
 
-  <!-- Main Content -->
-  <main class="section light">
-    <div class="container">
-      <h1>Contact</h1>
-      <p>
-        I am always excited to connect — whether to collaborate, exchange ideas, or explore new opportunities. 
-        Feel free to reach out if you would like to work together, ask questions, or simply start a conversation.
-      </p>
-      <p>
-        You can email me at: <a href="mailto:fanny-marie_vavrovsky@brown.edu" class="button-link">fanny-marie_vavrosvky@brown.edu</a><br/>
-        Or connect with me through <a href="https://www.linkedin.com/in/fanny-vavrovsky/" class="button-link" target=\"_blank\">LinkedIn</a>.
-      </p>
-    </div>
-  </main>
+  <body>
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <div class="container">
+        <div class="logo">
+          <a href="../index.html" style="text-decoration: none; color: inherit">
+            Fanny Vavrovsky
+          </a>
+        </div>
 
-  <!-- Footer -->
-  <footer class="footer">
+        <nav aria-label="Primary navigation">
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="engagement.html">Policy in Action</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="creative.html">Creative</a></li>
+            <li><a href="cv.html">CV</a></li>
+            <li>
+              <a href="contact.html" class="active" aria-current="page">
+                Contact
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- FULL-BLEED BANNER -->
+      <div class="page-banner">
+        <img
+          src="../images/plenaryshot3.jpg"
+          alt="Atmospheric banner image"
+        />
+        <div class="page-banner-overlay">
+          <p class="page-banner-kicker">Let’s work together.</p>
+        </div>
+      </div>
+
+      <!-- PAGE CONTENT -->
+      <section class="section">
+        <div class="container">
+          <!-- Centered intro -->
+          <div class="contact-intro">
+            <h2>Contact</h2>
+            <p>
+              If you’d like to collaborate, share an idea, or explore a project,
+              feel free to reach out using the form below. I read everything and
+              respond when relevant.
+            </p>
+          </div>
+
+          <!-- FORM -->
+          <div class="panel contact-panel">
+            <form
+              action="https://formspree.io/f/mnjjpeql"
+              method="POST"
+            >
+              <label class="field">
+                <span>Your email</span>
+                <input type="email" name="email" required />
+              </label>
+
+              <label class="field">
+                <span>Your message</span>
+                <textarea name="message" rows="6" required></textarea>
+              </label>
+
+              <button type="submit" class="button-link">
+                Send message
+              </button>
+
+              <p class="contact-note">
+                You can also connect with me on
+                <a
+                  href="https://www.linkedin.com/in/fanny-vavrovsky/"
+                  target="_blank"
+                  rel="noopener"
+                  >LinkedIn</a
+                >.
+              </p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
       <div class="container">
         <p>2025 Fanny Vavrovsky</p>
         <p>
@@ -54,5 +111,5 @@
         </p>
       </div>
     </footer>
-</body>
+  </body>
 </html>
